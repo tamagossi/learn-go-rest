@@ -1,4 +1,4 @@
-package main
+package middleware_rpc
 
 import (
 	"encoding/json"
@@ -11,7 +11,7 @@ type city struct {
 	Area uint64
 }
 
-func mainLogic(w http.ResponseWriter, r *http.Request) {
+func cityApiLogic(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		var tempCity city
 		decoder := json.NewDecoder(r.Body)
@@ -32,7 +32,7 @@ func mainLogic(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main() {
-	http.HandleFunc("/city", mainLogic)
+func CityApi() {
+	http.HandleFunc("/city", cityApiLogic)
 	http.ListenAndServe(":8000", nil)
 }

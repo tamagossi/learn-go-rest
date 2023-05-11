@@ -1,4 +1,4 @@
-package main
+package middleware_rpc
 
 import (
 	"log"
@@ -40,8 +40,8 @@ func setServerTimeCookie(handler http.Handler) http.Handler {
 // 	http.ListenAndServe(":8000", nil)
 // }
 
-func main() {
-	mainLogicHandler := http.HandlerFunc(mainLogic)
+func MultipleMiddleware() {
+	mainLogicHandler := http.HandlerFunc(logginMiddlewareLogic)
 	chain := alice.New(filterContentType,
 		setServerTimeCookie).Then(mainLogicHandler)
 	http.Handle("/city", chain)

@@ -1,4 +1,4 @@
-package main
+package basic_routing
 
 import (
 	"log"
@@ -7,7 +7,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-func main() {
+func FileServer() {
 	router := httprouter.New()
 	router.ServeFiles("/static/*filepath", http.Dir("/Users/tamagossi/static"))
 	log.Fatal(http.ListenAndServe(":8000", router))

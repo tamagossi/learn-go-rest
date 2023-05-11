@@ -1,4 +1,4 @@
-package main
+package basic_routing
 
 import (
 	"fmt"
@@ -17,7 +17,7 @@ func ArticleHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func main() {
+func MuxRouter() {
 	r := mux.NewRouter()
 	r.HandleFunc("/articles/{category}/{id:[0-9]+}", ArticleHandler)
 

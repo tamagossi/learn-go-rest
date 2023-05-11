@@ -1,4 +1,4 @@
-package main
+package basic_routing
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ func QueryHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func main() {
+func QueryParameters() {
 	r := mux.NewRouter()
 	r.HandleFunc("/articles", QueryHandler)
 	r.Queries("id", "category")

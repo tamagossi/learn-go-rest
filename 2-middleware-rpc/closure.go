@@ -1,4 +1,4 @@
-package main
+package middleware_rpc
 
 import "fmt"
 
@@ -11,7 +11,7 @@ func generator() func() int {
 	}
 }
 
-func main() {
+func Closure() {
 	numGenerator := generator()
 
 	for i := 0; i < 5; i++ {

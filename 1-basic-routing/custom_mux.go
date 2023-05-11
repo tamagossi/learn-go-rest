@@ -1,4 +1,4 @@
-package main
+package basic_routing
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ func giveRandom(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Your random number is: %f", rand.Float64())
 }
 
-func main() {
+func CustomMux() {
 	mux := &CustomServeMux{}
 	http.ListenAndServe(":8000", mux)
 }

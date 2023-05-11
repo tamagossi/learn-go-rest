@@ -1,4 +1,4 @@
-package main
+package basic_routing
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func main() {
+func MultipleHandle() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/randomFloat", func(w http.ResponseWriter, r *http.Request) {

@@ -1,4 +1,4 @@
-package main
+package basic_routing
 
 import (
 	"bytes"
@@ -38,7 +38,7 @@ func GetFileContent(w http.ResponseWriter, r *http.Request, params httprouter.Pa
 	fmt.Fprintf(w, getCommandOutput("/bin/cat", params.ByName("name")))
 }
 
-func main() {
+func ExecService() {
 	router := httprouter.New()
 	router.GET("/api/v1/go-version", GetGoVersion)
 	router.GET("/api/v1/show_file/:name", GetFileContent)

@@ -1,4 +1,4 @@
-package main
+package middleware_rpc
 
 import (
 	"log"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-type Args struct{}
+// type Args struct{}
 
 type TimeServer int64
 
@@ -17,7 +17,7 @@ func (t *TimeServer) GiveServerTime(args *Args, reply *int64) error {
 	return nil
 }
 
-func main() {
+func RPCServer() {
 	timeserver := new(TimeServer)
 	rpc.Register(timeserver)
 	rpc.HandleHTTP()

@@ -1,11 +1,11 @@
-package main
+package middleware_rpc
 
 import (
 	"log"
 	"net/rpc"
 )
 
-func main() {
+func RPCClient() {
 	var reply int64
 	args := Args{}
 

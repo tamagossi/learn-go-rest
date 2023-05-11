@@ -1,4 +1,4 @@
-package main
+package middleware_rpc
 
 import (
 	"log"
@@ -9,15 +9,15 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func mainLogic(w http.ResponseWriter, r *http.Request) {
+func logginMiddlewareLogic(w http.ResponseWriter, r *http.Request) {
 	log.Println("Processing request!")
 	w.Write([]byte("OK"))
 	log.Println("Finished processing request")
 }
 
-func main() {
+func LogginMiddleware() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", mainLogic)
+	r.HandleFunc("/", logginMiddlewareLogic)
 
 	loggedRouter := handlers.LoggingHandler(os.Stdout, r)
 	http.ListenAndServe(":8000", loggedRouter)
